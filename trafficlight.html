@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+ <head><style type="text/css" id="dcoder_stylesheet">#traffic-light {
+  width: 100px;
+  height: 300px;
+  margin: 50px auto;
+  border: 2px solid black;
+  border-radius: 50px;
+  box-shadow: 0 0 10px gray;
+  position: relative;
+}
+
+.light {
+  width: 90px;
+  height: 90px;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 0;
+}
+
+#red {
+  background-color: red;
+  left: 5px;
+}
+
+#yellow {
+  background-color: yellow;
+  left: 5px;
+  bottom: 100px;
+}
+
+#green {
+  background-color: green;
+  left: 5px;
+  bottom: 200px;
+}
+
+.light.active {
+  box-shadow: 0 0 10px black;
+}
+</style></head> 
+ <body> 
+  <div id="traffic-light">
+  <div id="red" class="light"></div>
+  <div id="yellow" class="light"></div>
+  <div id="green" class="light"></div>
+</div>
+
+ 
+<script type="text/javascript" id="dcoder_script">const redLight = document.getElementById("red");
+const yellowLight = document.getElementById("yellow");
+const greenLight = document.getElementById("green");
+
+let currentLight = "green";
+
+setInterval(() => {
+  if (currentLight === "green") {
+    greenLight.classList.remove("active");
+    yellowLight.classList.add("active");
+    currentLight = "yellow";
+  } else if (currentLight === "yellow") {
+    yellowLight.classList.remove("active");
+    redLight.classList.add("active");
+    currentLight = "red";
+  } else {
+    redLight.classList.remove("active");
+    greenLight.classList.add("active");
+    currentLight = "green";
+  }
+}, 1000);
+</script></body></html>
